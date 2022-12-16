@@ -1,0 +1,9 @@
+private/
+.texpadtmp/
+*.aux
+*.bcf
+*.log
+*.out
+*.xml
+*.bbl
+*.blg
