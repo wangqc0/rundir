@@ -6,9 +6,9 @@
 
 loc_stata_win = "C:/Program Files (x86)/Stata15/StataSE-64.exe"
 loc_stata_mac = "/Applications/Stata/StataSE.app/Contents/MacOS/stata-se"
-loc_python = "python"
-loc_R = "/Library/Frameworks/R.framework/Resources/bin/Rscript"
+loc_r = "/Library/Frameworks/R.framework/Resources/bin/Rscript"
 loc_matlab = "/Applications/MATLAB_R2021b.app/bin/matlab"
+loc_python = "python"
 loc_pdflatex = "/Library/TeX/texbin/pdflatex"
 loc_bibtex = "/Library/TeX/texbin/biber"
 
@@ -43,12 +43,12 @@ def run_stata(fileloc):
 	os.remove("{}.log".format(script[0:-3]))
 	os.chdir(dir_origin)
 
-def run_R(fileloc):
+def run_r(fileloc):
 	"""Run R script, then go back to the original directory"""
 	fileloc = "/".join([dir_origin, fileloc])
 	script, dir_script = parse_location(fileloc)
 	os.chdir(dir_script)
-	subprocess.call([loc_R, "--vanilla", script])
+	subprocess.call([loc_r, "--vanilla", script])
 	os.chdir(dir_origin)
 
 def run_matlab(fileloc):

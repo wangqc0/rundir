@@ -54,7 +54,7 @@ The automation can handle Stata files. The caveat is that the only plot format t
 
 Currently, I optimise the compatibility of the Stata processing, so it works in both a Mac environment and a Windows environment.\\
 
-I run the following Stata code.\\
+I run the following Stata code.\footnote{I use a dataset from: \url{https://stats.oarc.ucla.edu/stata/examples/kirk/experimental-design-procedures-for-the-behavioral-sciences-third-edition-by-roger-e-kirk/} here for illustrative purposes.}\\
 
 \lstinputlisting{sample_stata.do}
 
@@ -134,13 +134,13 @@ Note that the function has two arguments. The second specifies the number of typ
 
 To run the whole process, just open the Python script of \texttt{rundirectory.py} and run. It automatically includes functions and pre-settings from the function script.\\
 
-To change the location of the software used, open \texttt{rundirectory\_function.py} and manually modify the section under "locations of the software". We can extend the terminal processing to any statistical software that supports running at the terminal.\\
+To change the location of the software used, open \texttt{rundirectory\_function.py} and manually modify the section under ``locations of the software". We can extend the terminal processing to any statistical software that supports running at the terminal.\\
 
 The main script, \texttt{rundirectory.py}, is as follows.\\
 
 \lstinputlisting[language=Python]{rundirectory.py}
 
-For Mac users, click the folder that contains the main script, then click "Finder" $>$ "Services" $>$ "New Terminal at Folder". In the popped terminal, type:
+For Mac users, click the folder that contains the main script, then click ``Finder" $->$ ``Services" $->$ ``New Terminal at Folder". In the popped terminal, type:
 \begin{verbatim}
 	python rundirectory.py
 \end{verbatim}
