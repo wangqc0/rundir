@@ -36,7 +36,7 @@ def run_stata(fileloc):
 		for line in logfile:
 			if err.match(line):
 				print(line)
-				sys.exit("Stata Error code {line} in {fileloc}".format(line=line[0:-2], fileloc=fileloc) )
+				sys.exit("Stata Error code {line} in {fileloc}".format(line=line[0:-2], fileloc=fileloc))
 				lastline = line
 				print(lastline)
 
