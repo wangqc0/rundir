@@ -7,8 +7,8 @@
 loc_stata_win = "C:/Program Files (x86)/Stata15/StataSE-64.exe"
 loc_stata_mac = "/Applications/Stata/StataSE.app/Contents/MacOS/stata-se"
 loc_r = "/Library/Frameworks/R.framework/Resources/bin/Rscript"
-loc_matlab = "/Applications/MATLAB_R2021b.app/bin/matlab"
-loc_python = "python"
+loc_matlab = "/Applications/MATLAB_R2022b.app/bin/matlab"
+loc_python = "python3"
 loc_pdflatex = "/Library/TeX/texbin/pdflatex"
 loc_bibtex = "/Library/TeX/texbin/biber"
 

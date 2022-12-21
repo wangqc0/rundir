@@ -9,7 +9,7 @@ I was illuminated by [Gentzkow and Shapiro](https://web.stanford.edu/~gentzkow/r
 With this small tool, you can run a research project from raw data to the final report for submission within one line of command as follows after directing the terminal to the folder of the project:
 
 ```
-python rundirectory.py
+python3 rundirectory.py
 ```
 
 I have tested for the most used statistical software and publishing tools in social science research on Mac, including Stata, R (RStudio), Matlab, Python and LaTex (with BibTex incorporated). Any suggestions for adding new useful software are warmly welcomed.
@@ -26,7 +26,7 @@ To use the tool on a new project, please copy and paste the two files, `rundirec
 		* Mac: Open "Finder", go to "Applications", show the package contents of the installed Matlab, click the folder "bin", then find the "matlab" file.
 		* Windows: Go to the folder of the installed Matlab, then find the ".exe" file.
 	* Python (`loc_python`):
-		* Mac: Usually, just entering `python` works. Otherwise, try `which python` in the terminal to find the location, and use the returned folder as the location.
+		* Mac: Usually, just entering `python3` works. Otherwise, try `which python3` in the terminal to find the location, and use the returned folder as the location.
 		* Windows: Go to the folder where your Python is installed. Use the folder as the location.
 	* LaTeX (`loc_pdflatex` and 	`loc_bibtex`):
 		* Mac: For pdflatex, try `which pdflatex` in the terminal to find the location, and use the returned file as the location. For bibtex (used for bibliography), try `which biber` in the terminal to find the location, and use the returned file as the location.
