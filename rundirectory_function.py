@@ -67,13 +67,18 @@ def run_python(fileloc):
 	subprocess.call([loc_python, script])  
 	os.chdir(dir_origin)
 
-def run_latex(fileloc, num_typeset = 2):
+def run_latex(fileloc, num_typeset = 2, shell_escape = False):
 	"""Run Tex script, then go back to the original directory"""
+	# shell_escape: Enable when external tools are needed for compiling.
 	fileloc = "/".join([dir_origin, fileloc])
 	script, dir_script = parse_location(fileloc)
 	os.chdir(dir_script)
-	subprocess.call([loc_pdflatex, script])
+	if shell_escape:
+		subprocess_call_tex = [loc_pdflatex, "-shell-escape", script]
+	else:
+		subprocess_call_tex = [loc_pdflatex, script]
+	subprocess.call(subprocess_call_tex)
 	subprocess.call([loc_bibtex, script[0:-4]])
 	for i_num_typeset in range(num_typeset):
-		subprocess.call([loc_pdflatex, script])
+		subprocess.call(subprocess_call_tex)
 	os.chdir(dir_origin)

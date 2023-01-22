@@ -51,7 +51,7 @@
 	Slw setlinewidth
 	Slrgb setrgbcolor
 	x1p y1p x2p y2p x3p y3p curveto
-	S
+	stroke
 } def
 /Stxtl {
 	/sp exch def
@@ -184,7 +184,7 @@
 	} if
 	Slw setlinewidth
 	Slrgb setrgbcolor
-	S
+	stroke
 } def
 /Sdia {
 	/sfill exch def
@@ -245,12 +245,12 @@
 		gsave
 		Slw 2 mul setlinewidth
 		clip
-		S
+		stroke
 		grestore
 	} if
 	salign 1 eq {
 		Slw setlinewidth
-		S
+		stroke
 	} if
 	salign 2 eq {
 		gsave
@@ -265,7 +265,7 @@
 		Pie
 		eoclip
 		newpath Pie
-		S
+		stroke
 		grestore
 	} if
 	newpath
@@ -370,7 +370,7 @@
 		grestore
 	} ifelse
 	Slw setlinewidth
-	S
+	stroke
 	grestore
 } def
 /Spipe {
@@ -407,7 +407,7 @@
 	newpath xleft ytop moveto xcen ybot lineto xright ytop lineto
 	Slw setlinewidth
 	Slrgb setrgbcolor
-	S
+	stroke
 } def
 /Lcs {
 	currentlinecap
@@ -430,37 +430,23 @@
 		Slw 2 mul setlinewidth
 		clip
 		Slrgb setrgbcolor
-		S
+		stroke
 		grestore
 	} if
 	salign 1 eq {
 		sfill Sfill
-		Slw setlinewidth
-		Slrgb setrgbcolor
-		S
+		sstroke Sstroke
 	} if
 	salign 2 eq {
 		gsave
 		Slw 2 mul setlinewidth
 		Slrgb setrgbcolor
-		S
+		stroke
 		grestore
 		sfill Sfill
 	} if
 	newpath
 	Lcr
-} def
-/Sbpa {
-	newpath
-} def
-/Sepa {
-	Slw setlinewidth
-	Slrgb setrgbcolor
-	currentlinejoin
-	1 setlinejoin
-	S
-	setlinejoin
-	newpath
 } def
 /Stransrot {
 	/anglep exch def
@@ -475,14 +461,7 @@
 /cp {currentpoint} def 
 /M {moveto} def 
 /rm {rmoveto} def 
-/S {
-	Slw 0.000 eq {
-		newpath
-	} if
-	Slw 0.000 ne {
-		stroke
-	} if
-} def
+/S {stroke} def 
 /L {Slw setlinewidth Slrgb setrgbcolor lineto Lcs S Lcr} def 
 /PL {Slw setlinewidth Slrgb setrgbcolor lineto} def 
 /MF-Helvetica {
@@ -515,7 +494,7 @@
 	sstroke 1 eq {
 		Slw setlinewidth
 		Slrgb setrgbcolor
-		S
+		stroke
 	} if
 	newpath
 } def
