@@ -126,9 +126,9 @@ The output plot is as follows.\\
 
 Finally, everything is poured into the LaTeX for final processing towards the research report. The function to run LaTeX, \texttt{run\_latex}, is as follows.\\
 
-\lstinputlisting[language=Python, linerange={70-84}]{rundirectory_function.py}
+\lstinputlisting[language=Python, linerange={70-88}]{rundirectory_function.py}
 
-Note that the function has three arguments. The second specifies the number of typesettings after loading the BibTex. The default setting is two, when the processing typesets the pdf file twice after loading the references. The third, a logical variable, specifies whether external tools are needed for the Tex compiling. It should be enabled (set to \texttt{True}) when the compile needs to access files outside the folder of the Tex file.\\
+Note that the function has four arguments. The second specifies the distribution to use, which is ``pdflatex'' by default. The third specifies the number of typesettings after loading the BibTex. The default setting is two, when the processing typesets the pdf file twice after loading the references. The fourth, a logical variable, specifies whether external tools are needed for the Tex compiling. It should be enabled (set to \texttt{True}) when the compile needs to access files outside the folder of the Tex file.\\
 
 \section{Automation}
 

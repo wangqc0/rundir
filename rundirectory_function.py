@@ -7,7 +7,7 @@
 loc_stata_win = "C:/Program Files (x86)/Stata15/StataSE-64.exe"
 loc_stata_mac = "/Applications/Stata/StataSE.app/Contents/MacOS/stata-se"
 loc_r = "/Library/Frameworks/R.framework/Resources/bin/Rscript"
-loc_matlab = "/Applications/MATLAB_R2022b.app/bin/matlab"
+loc_matlab = "/Applications/MATLAB_R2023b.app/bin/matlab"
 loc_python = "python3"
 loc_pdflatex = "/Library/TeX/texbin/pdflatex"
 loc_bibtex = "/Library/TeX/texbin/biber"
@@ -67,16 +67,20 @@ def run_python(fileloc):
 	subprocess.call([loc_python, script])  
 	os.chdir(dir_origin)
 
-def run_latex(fileloc, num_typeset = 2, shell_escape = False):
+def run_latex(fileloc, distribution = "pdflatex", num_typeset = 2, shell_escape = False):
 	"""Run Tex script, then go back to the original directory"""
 	# shell_escape: Enable when external tools are needed for compiling.
+	if distribution == "pdflatex":
+		loc_latex = loc_pdflatex
+	else:
+		loc_latex = "/Library/TeX/texbin/" + distribution
 	fileloc = "/".join([dir_origin, fileloc])
 	script, dir_script = parse_location(fileloc)
 	os.chdir(dir_script)
 	if shell_escape:
-		subprocess_call_tex = [loc_pdflatex, "-shell-escape", script]
+		subprocess_call_tex = [loc_latex, "-shell-escape", script]
 	else:
-		subprocess_call_tex = [loc_pdflatex, script]
+		subprocess_call_tex = [loc_latex, script]
 	subprocess.call(subprocess_call_tex)
 	subprocess.call([loc_bibtex, script[0:-4]])
 	for i_num_typeset in range(num_typeset):
