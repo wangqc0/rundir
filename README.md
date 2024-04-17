@@ -2,7 +2,7 @@
 
 By: Qichao Wang
 
-Last update on: 7 November 2023 (Version 2.1)
+Last update on: 17 April 2023 (Version 2.2)
 
 I was illuminated by [Gentzkow and Shapiro](https://web.stanford.edu/~gentzkow/research/CodeAndData.pdf) to adopt the complete automatic process for a research project as an additional step from a manual pipeline from data processing and plotting using Stata, R or Matlab to typesetting the research paper using LaTex. The Python programme is based on [Hofman](https://github.com/hofmanpaul/rundirectory.py)’s work with modifications.
 
@@ -12,7 +12,7 @@ With this small tool, you can run a research project from raw data to the final 
 python3 rundirectory.py
 ```
 
-I have tested for the most used statistical software and publishing tools in social science research on Mac, including Stata, R (RStudio), Matlab, Python and LaTex (with BibTex incorporated). Any suggestions for adding new useful software are warmly welcomed.
+I have tested for the most used statistical software and publishing tools in social science research on Mac, including Stata, R (RStudio), Matlab, Python, C++ and LaTex (with BibTex incorporated). Any suggestions for adding new useful software are warmly welcomed.
 
 To use the tool on a new project, please copy and paste the two files, `rundirectory.py` and `rundirectory_function.py`, to the folder of your project. Then:
 

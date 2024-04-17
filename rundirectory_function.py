@@ -4,7 +4,7 @@
 
 # Software locations
 
-loc_stata_win = "C:/Program Files (x86)/Stata15/StataSE-64.exe"
+loc_stata_win = "C:/Program Files (x86)/Stata18/StataSE-64.exe"
 loc_stata_mac = "/Applications/Stata/StataSE.app/Contents/MacOS/stata-se"
 loc_r = "/Library/Frameworks/R.framework/Resources/bin/Rscript"
 loc_matlab = "/Applications/MATLAB_R2023b.app/bin/matlab"
@@ -32,15 +32,15 @@ def run_stata(fileloc):
 		subprocess.call([loc_stata_mac, "-b", "do", script])
 	
 	err = re.compile("^r\([0-9]+\);$")
-	with open("{}.log".format(script[0:-3]), 'r') as logfile:
+	with open("{}.log".format(re.sub("(.*)\\.(.*)$", "\\1", script)), 'r') as logfile:
 		for line in logfile:
 			if err.match(line):
 				print(line)
-				sys.exit("Stata Error code {line} in {fileloc}".format(line=line[0:-2], fileloc=fileloc))
+				sys.exit("Stata Error code {line} in {fileloc}".format(line = line[0:-2], fileloc = fileloc))
 				lastline = line
 				print(lastline)
 
-	os.remove("{}.log".format(script[0:-3]))
+	os.remove("{}.log".format(re.sub("(.*)\\.(.*)$", "\\1", script)))
 	os.chdir(dir_origin)
 
 def run_r(fileloc):
@@ -56,7 +56,7 @@ def run_matlab(fileloc):
 	fileloc = "/".join([dir_origin, fileloc])
 	script, dir_script = parse_location(fileloc)
 	os.chdir(dir_script)
-	subprocess.call([loc_matlab, "-nodisplay", "-batch", script.split('.')[0]])
+	subprocess.call([loc_matlab, "-nodisplay", "-batch", script.split(".")[0]])
 	os.chdir(dir_origin)
 
 def run_python(fileloc):
@@ -65,6 +65,15 @@ def run_python(fileloc):
 	script, dir_script = parse_location(fileloc)
 	os.chdir(dir_script)
 	subprocess.call([loc_python, script])  
+	os.chdir(dir_origin)
+
+def run_cpp(fileloc):
+	"""Run C++ script, then go back to the original directory"""
+	fileloc = "/".join([dir_origin, fileloc])
+	script, dir_script = parse_location(fileloc)
+	os.chdir(dir_script)
+	os.system("g++ " + script + " -o " + re.sub("(.*)\\.(.*)$", "\\1", script))
+	os.system("./" + re.sub("(.*)\\.(.*)$", "\\1", script))
 	os.chdir(dir_origin)
 
 def run_latex(fileloc, distribution = "pdflatex", num_typeset = 2, shell_escape = False):
@@ -82,7 +91,7 @@ def run_latex(fileloc, distribution = "pdflatex", num_typeset = 2, shell_escape 
 	else:
 		subprocess_call_tex = [loc_latex, script]
 	subprocess.call(subprocess_call_tex)
-	subprocess.call([loc_bibtex, script[0:-4]])
+	subprocess.call([loc_bibtex, re.sub("(.*)\\.(.*)$", "\\1", script)])
 	for i_num_typeset in range(num_typeset):
 		subprocess.call(subprocess_call_tex)
 	os.chdir(dir_origin)

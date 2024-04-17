@@ -1,6 +1,6 @@
 * This is a sample file.
 
-cd "/Users/WilliamWang/Library/Mobile Documents/com~apple~CloudDocs/Documents/py/rundir"
+cd "/Users/WilliamWang/Library/Mobile Documents/com~apple~CloudDocs/Documents/GitHub/rundir"
 
 use "co3.dta", clear
 

@@ -42,9 +42,9 @@ A research project involves a lot of steps. Generally, there are the following s
 	\item Literature review
 	\item Paper writing
 \end{itemize}
-However, each step requires at least some manual work. Sometimes the data steps involve multiple statistical software. For example, a project in macroeconomics possibly involves processing raw data in Stata before further analysis in Matlab. When the number of software used increases, manual work can be laborious. To liberate researchers from manual work, automation at a higher degree is desirable.\\
+However, each step requires at least some manual work. Sometimes the data steps involve multiple statistical software. For example, a project in macroeconomics possibly involves processing raw data in Stata before further analysis in MATLAB. When the number of software used increases, manual work can be laborious. To liberate researchers from manual work, automation at a higher degree is desirable.\\
 
-I was illuminated by \textcite{gentzkow_code_2014} to adopt the complete automatic process for a research project as an additional step from a manual pipeline from data processing and plotting using Stata, R or Matlab to typesetting the research paper using \LaTeX. The Python programme is based on \textcite{hofman_github_2018}'s work with modifications.\\
+I was illuminated by \textcite{gentzkow_code_2014} to adopt the complete automatic process for a research project as an additional step from a manual pipeline from data processing and plotting using Stata, R or MATLAB to typesetting the research paper using \LaTeX. The Python program is based on \textcite{hofman_github_2018}'s work with modifications.\\
 
 The report is automatically generated down the line from the python script file \texttt{rundirectory.py}. I include the functions in another file \texttt{rundirectory\_function.py} with necessary pre-settings, including the directories to call the software in the Mac terminal. All the contents in the handbook are self-contained in the code files.\\
 
@@ -52,7 +52,7 @@ The report is automatically generated down the line from the python script file 
 
 The automation can handle Stata files. The caveat is that the only plot format the terminal version of Stata supports is eps.\\
 
-Currently, I optimise the compatibility of the Stata processing, so it works in both a Mac environment and a Windows environment.\\
+Currently, I optimize the compatibility of the Stata processing, so it works in both a Mac environment and a Windows environment.\\
 
 I run the following Stata code.\footnote{I use the first data file from: \url{https://stats.oarc.ucla.edu/stata/examples/kirk/experimental-design-procedures-for-the-behavioral-sciences-third-edition-by-roger-e-kirk/} here for illustrative purposes.}\\
 
@@ -86,15 +86,15 @@ The output plot is as follows.\\
 	\includegraphics[width=.5\textwidth]{sample_r_graph.png}
 \end{figure}
 
-\section{Matlab}
+\section{MATLAB}
 
-The automation can handle Matlab files. Running scripts within a project environment is supported for Matlab processing. Nesting batch processing with parallel computing within a script substantially boosts efficiency. Dynare codes can also be nested within the script.\\
+The automation can handle MATLAB files. Running scripts within a project environment is supported for MATLAB processing. Nesting batch processing with parallel computing within a script substantially boosts efficiency. Dynare codes can also be nested within the script.\\
 
-I run the following Matlab code.\\
+I run the following MATLAB code.\\
 
 \lstinputlisting[language=Matlab]{sample_matlab.m}
 
-The function to run Matlab code, \texttt{run\_matlab}, is as follow.\\
+The function to run MATLAB code, \texttt{run\_matlab}, is as follow.\\
 
 \lstinputlisting[language=Python, linerange={54-60}]{rundirectory_function.py}
 
@@ -122,11 +122,25 @@ The output plot is as follows.\\
 	\includegraphics[width=.5\textwidth]{sample_python_graph.png}
 \end{figure}
 
+\section{C++}
+
+Although C++ is less used in economic research, its speed renders it useful in computation-consuming projects.\\
+
+I run the following C++ code.\\
+
+\lstinputlisting[language=C++]{sample_cpp.cpp}
+
+The function to run C++ code, \texttt{run\_cpp}, is as follow. There is no need to specify the location of the application, as the function automatically uses g++, a conventional compiler for C++ programs.\\
+
+\lstinputlisting[language=Python, linerange={70-77}]{rundirectory_function.py}
+
+C++ is usually not used for producing graphs, and even the most used graphic library in C++ is inherited from the Matplotlib in Python. Therefore, the output files are usually data frames, with CSV being the most convenient type in most situations. The sample code outputs a CSV file.\\
+
 \section{LaTex}
 
 Finally, everything is poured into the LaTeX for final processing towards the research report. The function to run LaTeX, \texttt{run\_latex}, is as follows.\\
 
-\lstinputlisting[language=Python, linerange={70-88}]{rundirectory_function.py}
+\lstinputlisting[language=Python, linerange={79-97}]{rundirectory_function.py}
 
 Note that the function has four arguments. The second specifies the distribution to use, which is ``pdflatex'' by default. The third specifies the number of typesettings after loading the BibTex. The default setting is two, when the processing typesets the pdf file twice after loading the references. The fourth, a logical variable, specifies whether external tools are needed for the Tex compiling. It should be enabled (set to \texttt{True}) when the compile needs to access files outside the folder of the Tex file.\\
 
