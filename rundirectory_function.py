@@ -4,10 +4,10 @@
 
 # Software locations
 
-loc_stata_win = "C:/Program Files (x86)/Stata18/StataSE-64.exe"
-loc_stata_mac = "/Applications/Stata/StataSE.app/Contents/MacOS/stata-se"
+loc_stata_win = "C:/Program Files (x86)/Stata18/StataMP-64.exe"
+loc_stata_mac = "/Applications/Stata/StataMP.app/Contents/MacOS/stata-mp"
 loc_r = "/Library/Frameworks/R.framework/Resources/bin/Rscript"
-loc_matlab = "/Applications/MATLAB_R2023b.app/bin/matlab"
+loc_matlab = "/Applications/MATLAB_R2024a.app/bin/matlab"
 loc_python = "python3"
 loc_pdflatex = "/Library/TeX/texbin/pdflatex"
 loc_bibtex = "/Library/TeX/texbin/biber"

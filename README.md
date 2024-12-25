@@ -2,7 +2,7 @@
 
 By: Qichao Wang
 
-Last update on: 17 April 2023 (Version 2.2)
+Last update on: 25 December 2024 (Version 2.2)
 
 I was illuminated by [Gentzkow and Shapiro](https://web.stanford.edu/~gentzkow/research/CodeAndData.pdf) to adopt the complete automatic process for a research project as an additional step from a manual pipeline from data processing and plotting using Stata, R or Matlab to typesetting the research paper using LaTex. The Python programme is based on [Hofman](https://github.com/hofmanpaul/rundirectory.py)’s work with modifications.
 
